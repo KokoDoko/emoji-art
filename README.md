@@ -1,7 +1,5 @@
 # Emoji Art Generator
 
-## Generate Emoji Art from any image
-
 Convert any image into the 🌑 🌘 🌗 🌖 🌕  emoji
 
 ![emojiart](docs/images/example.png)
