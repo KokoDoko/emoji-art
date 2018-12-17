@@ -9,6 +9,8 @@ class App {
     private chars = ["🌑","🌘","🌗","🌖","🌕"]
 
     constructor() {
+        // webcam branch contains code to capture the webcam
+
         let uploadField = document.getElementById("files-upload")! as HTMLInputElement
         uploadField.addEventListener("change", (e) => {
             let files = (e.target as HTMLInputElement).files!
