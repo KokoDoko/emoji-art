@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>Emoji Art Generator</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div class="settings">
+      <h3>Moon Emoji Art Generator 🌑🌘🌗🌖🌕 </h3>
+      <p>Choose a local file to view it as Moon emoji</p>
+      <div class="row">
+        <div>
+          <label for="resolution">Emoji in a row</label>
+          <input type="text" id="resolution" name="resolution" minlength="4" maxlength="8" size="8" value="60">
+        </div>
+        
+        <div>
+          <label for="fontsize">Font size</label>
+          <input type="text" id="fontsize" name="fontsize" minlength="4" maxlength="8" size="8" value="16">
+        </div>
+
+        <div>
+          <label for="files-upload">Image from your computer</label>
+          <input id="files-upload" name="files-upload" type="file"><br>
+        </div>
+
+        <!-- temp disabled because remote images cant be used with getImageData -->
+        <!--
+        <div>
+          <label for="file-url">Upload from URL</label>
+          <input type="text" id="file-url" name="file-url" size="12" placeholder="file url">
+          <button id="btn-url">Use URL</button>
+        </div>
+        -->
+      </div>
+
+      <div>
+        <canvas id="canvas" width="40" height="30"></canvas><br>
+      </div>
+    </div>
+
+    <emoji></emoji>
+
+    <div class="footer">
+      <p>An experiment by <a href="https://github.com/kokodoko" target="_blank">Erik Katerborg</a></p>
+    </div>
+
+    <script src='js/main.js'></script>
+  </body>
+</html>
