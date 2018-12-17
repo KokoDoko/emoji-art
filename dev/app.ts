@@ -3,7 +3,8 @@ class App {
     private sizeField: HTMLInputElement = document.getElementById("fontsize")! as HTMLInputElement
     private canvas: HTMLCanvasElement = document.getElementById("canvas")! as HTMLCanvasElement
     private context: CanvasRenderingContext2D = this.canvas.getContext('2d')!
-    private emoji: HTMLDivElement = document.getElementsByTagName("emoji")[0]! as HTMLDivElement
+    private emoji: HTMLDivElement = document.querySelector("emoji")! as HTMLDivElement
+    private settings: HTMLDivElement = document.querySelector(".settings")! as HTMLDivElement
     private resolution: number = 80
     private fontsize : number = 16
     private chars = ["🌑","🌘","🌗","🌖","🌕"]
@@ -32,6 +33,8 @@ class App {
     }
 
     getLocalUrl(file: File) {
+        this.settings.innerHTML = "Working..."
+
         let reader = new FileReader()
 
         reader.addEventListener("load", () => {
@@ -43,6 +46,7 @@ class App {
     }
 
     loadImage(url: string) {
+        
         this.resolution = Number(this.resolutionField.value)
         this.fontsize = Number(this.sizeField.value)
         this.emoji.style.fontSize = this.fontsize + "px"
@@ -103,6 +107,7 @@ class App {
         }
 
         this.scaleEmoji()
+        this.settings.style.display = "none"
     }
 
     // scale the div to fit the window

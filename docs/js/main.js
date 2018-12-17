@@ -6,7 +6,8 @@ var App = (function () {
         this.sizeField = document.getElementById("fontsize");
         this.canvas = document.getElementById("canvas");
         this.context = this.canvas.getContext('2d');
-        this.emoji = document.getElementsByTagName("emoji")[0];
+        this.emoji = document.querySelector("emoji");
+        this.settings = document.querySelector(".settings");
         this.resolution = 80;
         this.fontsize = 16;
         this.chars = ["🌑", "🌘", "🌗", "🌖", "🌕"];
@@ -21,6 +22,7 @@ var App = (function () {
     }
     App.prototype.getLocalUrl = function (file) {
         var _this = this;
+        this.settings.innerHTML = "Working...";
         var reader = new FileReader();
         reader.addEventListener("load", function () {
             var url = reader.result;
@@ -73,6 +75,7 @@ var App = (function () {
             this.emoji.innerHTML += this.chars[num];
         }
         this.scaleEmoji();
+        this.settings.style.display = "none";
     };
     App.prototype.scaleEmoji = function () {
         var s = window.innerWidth / this.emoji.offsetWidth - 0.02;
