@@ -2,7 +2,7 @@
 var App = (function () {
     function App() {
         var _this = this;
-        this.resolution = 60;
+        this.resolution = 80;
         this.fontsize = 16;
         this.chars = ["🌑", "🌘", "🌗", "🌖", "🌕"];
         this.resolutionField = document.getElementById("resolution");
@@ -83,4 +83,3 @@ var App = (function () {
 window.addEventListener("load", function () {
     new App();
 });
-//# sourceMappingURL=main.js.map

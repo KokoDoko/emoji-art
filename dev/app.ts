@@ -4,7 +4,7 @@ class App {
     private canvas : HTMLCanvasElement
     private context : CanvasRenderingContext2D
     private emoji: HTMLDivElement
-    private resolution: number = 60
+    private resolution: number = 80
     private fontsize : number = 16
     private chars = ["🌑","🌘","🌗","🌖","🌕"]
 
