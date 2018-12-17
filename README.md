@@ -2,7 +2,7 @@
 
 Convert any image into the 🌑 🌘 🌗 🌖 🌕  emoji
 
-![emojiart](docs/images/example.png)
+![emojiart](docs/images/example1.png)
 
 # View project
 
