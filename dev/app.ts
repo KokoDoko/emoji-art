@@ -1,20 +1,14 @@
 class App {
-    private resolutionField: HTMLInputElement
-    private sizeField: HTMLInputElement
-    private canvas : HTMLCanvasElement
-    private context : CanvasRenderingContext2D
-    private emoji: HTMLDivElement
+    private resolutionField: HTMLInputElement = document.getElementById("resolution")! as HTMLInputElement
+    private sizeField: HTMLInputElement = document.getElementById("fontsize")! as HTMLInputElement
+    private canvas: HTMLCanvasElement = document.getElementById("canvas")! as HTMLCanvasElement
+    private context: CanvasRenderingContext2D = this.canvas.getContext('2d')!
+    private emoji: HTMLDivElement = document.getElementsByTagName("emoji")[0]! as HTMLDivElement
     private resolution: number = 80
     private fontsize : number = 16
     private chars = ["🌑","🌘","🌗","🌖","🌕"]
 
     constructor() {
-        this.resolutionField = document.getElementById("resolution")! as HTMLInputElement
-        this.sizeField = document.getElementById("fontsize")! as HTMLInputElement
-        this.canvas = document.getElementById("canvas")! as HTMLCanvasElement
-        this.context = this.canvas.getContext('2d')!
-        this.emoji = document.getElementsByTagName("emoji")[0]! as HTMLDivElement
-        
         let uploadField = document.getElementById("files-upload")! as HTMLInputElement
         uploadField.addEventListener("change", (e) => {
             let files = (e.target as HTMLInputElement).files!

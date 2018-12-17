@@ -2,14 +2,14 @@
 var App = (function () {
     function App() {
         var _this = this;
-        this.resolution = 80;
-        this.fontsize = 16;
-        this.chars = ["🌑", "🌘", "🌗", "🌖", "🌕"];
         this.resolutionField = document.getElementById("resolution");
         this.sizeField = document.getElementById("fontsize");
         this.canvas = document.getElementById("canvas");
         this.context = this.canvas.getContext('2d');
         this.emoji = document.getElementsByTagName("emoji")[0];
+        this.resolution = 80;
+        this.fontsize = 16;
+        this.chars = ["🌑", "🌘", "🌗", "🌖", "🌕"];
         var uploadField = document.getElementById("files-upload");
         uploadField.addEventListener("change", function (e) {
             var files = e.target.files;
