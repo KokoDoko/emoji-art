@@ -6,7 +6,7 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "strictPropertyInitialization": false,
-        "sourceMap": true,
+        "sourceMap": false,
         "outFile": "docs/js/main.js"
     },
     "include": [

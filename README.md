@@ -8,7 +8,7 @@ Convert any image into the 🌑 🌘 🌗 🌖 🌕  emoji
 
 # View project
 
-Click here to test the project
+[Click here](https://kokodoko.github.io/emoji-art/) to generate your emoji art
 
 # Typescript
 
