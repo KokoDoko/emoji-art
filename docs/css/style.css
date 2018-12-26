@@ -3,8 +3,8 @@ html, body {
     margin:0px; padding:0px;
     background-color: rgb(50,50,50);
     font-family: Arial, Helvetica, sans-serif;
-    overflow:hidden;
 }
+
 html * {
     box-sizing: border-box;
 }
@@ -19,7 +19,7 @@ h3 {
     padding:7px;
 }
 .settings div {
-    margin-top:5px;
+    margin-top:8px;
 }
 
 #emoji {
@@ -34,7 +34,8 @@ h3 {
     border:0px;
     resize: none;
     overflow: hidden;
-    padding-top:3px;
+    padding-top:5px;
+    margin-top:5px;
 }
 
 button {

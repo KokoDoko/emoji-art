@@ -157,8 +157,7 @@ class App {
         console.log("_____________________")
         
         
-       // 1 moon is 14 px
-       //let s = 0.5// window.innerWidth/(14 * this.resolution)
+       // BUG BUG BUG HEIGHT NOT TRANSFORMING!?!?
        let s = window.innerWidth/this.emoji.offsetWidth - 0.03
        this.emoji.style.transform = `scale(${s})`
     }
