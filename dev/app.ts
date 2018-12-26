@@ -62,18 +62,22 @@ class App {
         img.crossOrigin = "Anonymous"
 
         img.addEventListener("load", () => {
-            // use the number of characters per row
-            let res = this.resolution / img.width
-            let w = img.width * res
-            let h = img.height * res
-            this.canvas.width = w
-            this.canvas.height = h
-            this.context.drawImage(img, 0, 0, w, h)
+            this.setCanvas(img)
             // this.grayScale()
             this.generateEmoji()
         })
 
         img.src = url
+    }
+
+    setCanvas(img:HTMLImageElement){
+        // use the number of characters per row
+        let res = this.resolution / img.width
+        let w = img.width * res
+        let h = img.height * res
+        this.canvas.width = w
+        this.canvas.height = h
+        this.context.drawImage(img, 0, 0, w, h)
     }
 
     // this is not needed for emoji generation, but nice to show the grayscale tones of the loaded image
@@ -155,7 +159,7 @@ class App {
         
        // 1 moon is 14 px
        //let s = 0.5// window.innerWidth/(14 * this.resolution)
-       let s = window.innerWidth/this.emoji.offsetWidth - 0.01
+       let s = window.innerWidth/this.emoji.offsetWidth - 0.03
        this.emoji.style.transform = `scale(${s})`
     }
 

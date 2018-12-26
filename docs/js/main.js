@@ -38,15 +38,18 @@ var App = (function () {
         var img = new Image();
         img.crossOrigin = "Anonymous";
         img.addEventListener("load", function () {
-            var res = _this.resolution / img.width;
-            var w = img.width * res;
-            var h = img.height * res;
-            _this.canvas.width = w;
-            _this.canvas.height = h;
-            _this.context.drawImage(img, 0, 0, w, h);
+            _this.setCanvas(img);
             _this.generateEmoji();
         });
         img.src = url;
+    };
+    App.prototype.setCanvas = function (img) {
+        var res = this.resolution / img.width;
+        var w = img.width * res;
+        var h = img.height * res;
+        this.canvas.width = w;
+        this.canvas.height = h;
+        this.context.drawImage(img, 0, 0, w, h);
     };
     App.prototype.grayScale = function () {
         var imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height);
@@ -99,7 +102,7 @@ var App = (function () {
         console.log("offset width " + this.emoji.offsetWidth);
         console.log("window width " + window.innerWidth);
         console.log("_____________________");
-        var s = window.innerWidth / this.emoji.offsetWidth - 0.01;
+        var s = window.innerWidth / this.emoji.offsetWidth - 0.03;
         this.emoji.style.transform = "scale(" + s + ")";
     };
     App.prototype.copyEmoji = function () {

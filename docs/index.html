@@ -8,42 +8,43 @@
   </head>
   <body>
     <div class="settings">
-      <h3>Emoji Art 🌑🌘🌗🌖🌕 </h3>
-      <p>Choose a local file to view it as Moon emoji</p>
-      <div class="row">
-        <div>
-          <label for="resolution">Emoji per row</label>
-          <input type="text" id="resolution" name="resolution" minlength="4" maxlength="8" size="8" value="80">
-        </div>
-        
-        <div>
-          <label for="files-upload">Upload image</label>
-          <input id="files-upload" name="files-upload" type="file"><br>
-        </div>
-
-        <!-- temp disabled because remote images cant be used with getImageData -->
-        <!--
-        <div>
-          <label for="file-url">Upload from URL</label>
-          <input type="text" id="file-url" name="file-url" size="12" placeholder="file url">
-          <button id="btn-url">Use URL</button>
-        </div>
-        -->
-      </div>
-
+      <h3>Create Emoji Art</h3>
+      <p>Upload an image and convert it to 🌑🌘🌗🌖🌕 emoji</p>
+      
       <div>
-        <canvas id="canvas" width="40" height="30"></canvas><br>
+        <label for="resolution">Emoji per row</label>
+        <input type="text" id="resolution" name="resolution" minlength="4" maxlength="8" size="8" value="80">
       </div>
+      
+      <div>
+        <label for="files-upload">Upload image</label>
+        <input id="files-upload" name="files-upload" type="file"><br>
+      </div>
+
+      <!-- temp disabled because remote images cant be used with getImageData -->
+      <!--
+      <div>
+        <label for="file-url">Upload from URL</label>
+        <input type="text" id="file-url" name="file-url" size="12" placeholder="file url">
+        <button id="btn-url">Use URL</button>
+      </div>
+      -->
+      
     </div>
 
     <div class="print">
       <button id="printbtn">Print</button><button id="copybtn">Copy to clipboard</button>
     </div>
 
-    <textarea id="emoji">hello</textarea>  
+    <textarea id="emoji"></textarea>  
 
     <div class="footer">
       <p>An experiment by Erik Katerborg - <a href="https://github.com/kokodoko" target="_blank">https://github.com/kokodoko</a></p>
+    </div>
+
+    <!-- invisible canvas to create the pixel data for the uploaded image -->
+    <div>
+      <canvas id="canvas" width="40" height="30"></canvas><br>
     </div>
 
     <script src='js/main.js'></script>
