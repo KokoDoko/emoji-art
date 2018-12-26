@@ -8,21 +8,16 @@
   </head>
   <body>
     <div class="settings">
-      <h3>Moon Emoji Art Generator 🌑🌘🌗🌖🌕 </h3>
+      <h3>Emoji Art 🌑🌘🌗🌖🌕 </h3>
       <p>Choose a local file to view it as Moon emoji</p>
       <div class="row">
         <div>
-          <label for="resolution">Emoji in a row</label>
+          <label for="resolution">Emoji per row</label>
           <input type="text" id="resolution" name="resolution" minlength="4" maxlength="8" size="8" value="80">
         </div>
         
         <div>
-          <label for="fontsize">Font size</label>
-          <input type="text" id="fontsize" name="fontsize" minlength="4" maxlength="8" size="8" value="16">
-        </div>
-
-        <div>
-          <label for="files-upload">Image from your computer</label>
+          <label for="files-upload">Upload image</label>
           <input id="files-upload" name="files-upload" type="file"><br>
         </div>
 
@@ -41,10 +36,14 @@
       </div>
     </div>
 
-    <emoji></emoji>
+    <div class="print">
+      <button id="printbtn">Print</button><button id="copybtn">Copy to clipboard</button>
+    </div>
+
+    <textarea id="emoji">hello</textarea>  
 
     <div class="footer">
-      <p>An experiment by Erik Katerborg - <a href="https://github.com/kokodoko" target="_blank">view source code at https://github.com/kokodoko</a></p>
+      <p>An experiment by Erik Katerborg - <a href="https://github.com/kokodoko" target="_blank">https://github.com/kokodoko</a></p>
     </div>
 
     <script src='js/main.js'></script>

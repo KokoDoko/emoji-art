@@ -7,10 +7,12 @@ html, body {
 html * {
     box-sizing: border-box;
 }
+
+h3 {
+    margin-top:0;
+}
 .settings {
-    width:70vw;
-    margin-top:10px;
-    margin-left:15vw;
+    margin:6px; padding:6px;
     background-color: rgb(90,90,90);
     border-radius:7px;
     padding:7px;
@@ -24,17 +26,29 @@ html * {
     padding:8px;
 }
 
-emoji {
-    display: inline-block;
-    overflow: visible;
-    font-family: 'Courier New', Courier, monospace;
-    font-size:16px;
-    line-height:1.2;
-    margin:2px;
-    min-width:20px;
-    min-height:20px;
+#emoji {
+    /*display: inline-block;*/
+    overflow-wrap:nowrap;
     white-space: nowrap;
+    font-family: 'Courier New', Courier, monospace;
     transform-origin: 0% 0%;
+    line-height: 100%;
+    font-size:40px;
+    background-color: rgb(50,50,50);
+    border:0px;
+    
+    overflow: hidden;
+    padding-top:3px;
+}
+
+button {
+    font-size:16px;
+    border-radius:4px;
+    margin:5px;
+}
+
+.print {
+    display: none;
 }
 
 .footer {
@@ -47,20 +61,13 @@ a, a:visited, a:hover {
 }
 
 @media (max-width:500px){
-    .settings {
-        width:90vw;
-        margin-left:3vw;
-        background-color: rgb(90,90,90);
-        border-radius:7px;
-        padding:7px;
-    }
     .row {
         display:block;
     }
 }
 
 @media print {
-    .settings, .footer {
+    .settings, .footer, .print {
         display:none;
     }
 }

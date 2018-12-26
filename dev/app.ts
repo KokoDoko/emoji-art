@@ -1,16 +1,25 @@
+// fitty js library
+declare var fitty: any
+
 class App {
     private resolutionField: HTMLInputElement = document.getElementById("resolution")! as HTMLInputElement
-    private sizeField: HTMLInputElement = document.getElementById("fontsize")! as HTMLInputElement
     private canvas: HTMLCanvasElement = document.getElementById("canvas")! as HTMLCanvasElement
     private context: CanvasRenderingContext2D = this.canvas.getContext('2d')!
-    private emoji: HTMLDivElement = document.querySelector("emoji")! as HTMLDivElement
+    private emoji: HTMLTextAreaElement = document.querySelector("#emoji")! as HTMLTextAreaElement
     private settings: HTMLDivElement = document.querySelector(".settings")! as HTMLDivElement
     private resolution: number = 80
-    private fontsize : number = 16
     private chars = ["🌑","🌘","🌗","🌖","🌕"]
 
     constructor() {
-        // webcam branch contains code to capture the webcam
+        // print and copy buttons
+        let printbutton: HTMLButtonElement = document.querySelector("#printbtn")! as HTMLButtonElement
+        let copybutton: HTMLButtonElement = document.querySelector("#copybtn")! as HTMLButtonElement
+
+        printbutton.addEventListener("click", () => window.print())
+
+        copybutton.addEventListener("click", () => this.copyEmoji())
+
+        // note: the webcam git branch contains code to capture the webcam
 
         let uploadField = document.getElementById("files-upload")! as HTMLInputElement
         uploadField.addEventListener("change", (e) => {
@@ -29,6 +38,7 @@ class App {
         })
         */
 
+        
         window.addEventListener("resize", () => this.scaleEmoji())    
     }
 
@@ -46,11 +56,8 @@ class App {
     }
 
     loadImage(url: string) {
-        
         this.resolution = Number(this.resolutionField.value)
-        this.fontsize = Number(this.sizeField.value)
-        this.emoji.style.fontSize = this.fontsize + "px"
-
+         
         let img = new Image()
         img.crossOrigin = "Anonymous"
 
@@ -62,7 +69,7 @@ class App {
             this.canvas.width = w
             this.canvas.height = h
             this.context.drawImage(img, 0, 0, w, h)
-            this.grayScale()
+            // this.grayScale()
             this.generateEmoji()
         })
 
@@ -90,6 +97,7 @@ class App {
 
     generateEmoji(){
         this.emoji.innerHTML = ""
+        let str = ""
         let imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height)
         let data = imageData.data
 
@@ -102,18 +110,66 @@ class App {
                 console.warn(num + " incorrect " + wavg)
             }
             
-            if (i % (this.resolution*4) == 0) this.emoji.innerHTML += "<br>"
-            this.emoji.innerHTML += this.chars[num]
+            if (i > 0 && i % (this.resolution*4) == 0) { 
+                str += "\n"
+            }
+            str += this.chars[num]
+            
         }
+        this.emoji.value = str
+
+        this.calculateRowsColumns()
 
         this.scaleEmoji()
         this.settings.style.display = "none"
+
+        let print: HTMLDivElement = document.querySelector(".print")! as HTMLDivElement
+        print.style.display = "block"
+    }
+
+    // calculate rows and columns for the textarea
+    calculateRowsColumns(){
+        let col = this.resolution
+        let row = 2
+
+        while (this.emoji.scrollWidth > this.emoji.offsetWidth) {
+            col++
+            this.emoji.cols = col
+        }
+
+        while (this.emoji.scrollHeight > this.emoji.offsetHeight) {
+            row++
+            this.emoji.rows = row
+        }
     }
 
     // scale the div to fit the window
-    scaleEmoji(){
-        let s = window.innerWidth/this.emoji.offsetWidth - 0.02
-        this.emoji.style.transform = `scale(${s})`
+    scaleEmoji(){      
+
+        // measure width of div that is too wide
+        console.log("scroll width " + this.emoji.scrollWidth)
+        console.log("offset width " + this.emoji.offsetWidth)
+        console.log("window width " + window.innerWidth)
+        console.log("_____________________")
+        
+        
+       // 1 moon is 14 px
+       //let s = 0.5// window.innerWidth/(14 * this.resolution)
+       let s = window.innerWidth/this.emoji.offsetWidth - 0.01
+       this.emoji.style.transform = `scale(${s})`
+    }
+
+    copyEmoji() {
+        this.emoji.focus()
+        this.emoji.select()
+
+        try {
+            var successful = document.execCommand('copy')
+            var msg = successful ? 'Copied emoji to clipboard!' : 'Copying failed'
+            alert(msg)
+        } catch (err) {
+            alert('Copying failed')
+        }
     }
 }
 
