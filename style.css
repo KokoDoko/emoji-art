@@ -1,0 +1,31 @@
+body {
+  background-color: black;
+  font-size: 0.4em;
+}
+
+.ascii-art {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(54, 1fr);
+  grid-template-rows: repeat(54, 1fr);
+  gap: 0;
+  font-size: 3em;
+  line-height: 1;
+  width: 54em;
+  height: 54em;
+}
+
+.ascii-art span {
+  padding-left:1px;
+}
+
+/* Style for the video overlay */
+video {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: 2px solid white;
+  border-radius: 8px;
+  z-index: 10;
+}
+
