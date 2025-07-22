@@ -29,3 +29,17 @@ video {
   z-index: 10;
 }
 
+.photo-link {
+    position: absolute;
+        top: 20px;
+        right: 20px;
+    color:white;
+    font-size:2em;
+    font-family: sans-serif;
+}
+
+.photo-link a, 
+.photo-link a:visited {
+    color:white;
+}
+

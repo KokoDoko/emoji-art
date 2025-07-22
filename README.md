@@ -2,7 +2,7 @@
 
 Convert any image into the 🌑 🌘 🌗 🌖 🌕  emoji. Uses P5.JS to easily grab the video.
 
-![emojiart](example2.png)
+![emojiart](./photo/images/example2.png)
 
 # View project
 
